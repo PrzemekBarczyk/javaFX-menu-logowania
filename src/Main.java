@@ -11,7 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Hello world!");
+        primaryStage.setTitle("Login Menu");
+        primaryStage.setScene(new LoginMenuController(new LoginMenuView(), new LoginMenuModel()).getScene());
         primaryStage.show();
     }
 }
