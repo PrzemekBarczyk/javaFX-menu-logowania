@@ -20,11 +20,18 @@ public class LoginMenuController implements EventHandler<ActionEvent> {
 
         Object evt = event.getSource();
 
-        if (evt == theView.getCheckBox()) {
+        if (evt == theView.getCheckBox()) { // zaznaczono/odznaczono checkBox
             theModel.handleCheckBox(theView.getCheckBox().isSelected());
         }
-        else if (evt == theView.getLoginButton()) {
+        else if (evt == theView.getLoginButton()) { // naciśnięto loginButton
             theModel.handleLoginButton(theView.getUsernameFieldText(), theView.getPasswordFieldText());
+
+            if (theModel.getIsLoginCorrect()) { // sprawdza czy dane logowania są poprawne
+                theView.succesLogin();
+            }
+            else {
+                theView.failLogin();
+            }
         }
     }
 

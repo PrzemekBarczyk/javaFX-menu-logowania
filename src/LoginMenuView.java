@@ -10,6 +10,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class LoginMenuView {
 
     private Scene scene;
@@ -51,10 +55,36 @@ public class LoginMenuView {
         checkBox = new CheckBox("Remember me");
         lowerPane.setLeft(checkBox);
 
-        loginButton = new Button("login");
+        loginButton = new Button("Login");
         lowerPane.setRight(loginButton);
 
+        takeSavedLogin(); // pobiera ostatnie dane do logowania jeśli zaznaczono opcję "remember me"
+
         scene = new Scene(mainPane);
+    }
+
+    private void takeSavedLogin() {
+
+        try {
+            Scanner scanner = new Scanner(new FileReader("resources/saved_login.txt"));
+            while (scanner.hasNextLine()) {
+                System.out.println("Pobrano poprzednie dane logowania");
+                String[] usernameAndPassword = scanner.nextLine().split(" ");
+                usernameField.setText(usernameAndPassword[0]);
+                passwordField.setText(usernameAndPassword[1]);
+            }
+        }
+        catch (FileNotFoundException ex) {
+            System.out.println("takeSavedLogin(): błąd przy otwieraniu pliku");
+        }
+    }
+
+    public void succesLogin() {
+        System.out.println("Zalogowano");
+    }
+
+    public void failLogin() {
+        System.out.println("Błędny login lub hasło");
     }
 
     public void addListeners(EventHandler<ActionEvent> listener) {
