@@ -1,3 +1,5 @@
+package application.loginmenu;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -79,37 +81,37 @@ public class LoginMenuView {
         }
     }
 
-    public void succesLogin() {
+    protected void succesLogin() {
         System.out.println("Zalogowano");
     }
 
-    public void failLogin() {
+    protected void failLogin() {
         System.out.println("Błędny login lub hasło");
     }
 
-    public void addListeners(EventHandler<ActionEvent> listener) {
+    protected void addListeners(EventHandler<ActionEvent> listener) {
 
         checkBox.setOnAction(listener);
         loginButton.setOnAction(listener);
     }
 
-    public Scene getScene() {
+    protected Scene getScene() {
         return scene;
     }
 
-    public Button getLoginButton() {
+    protected Button getLoginButton() {
         return loginButton;
     }
 
-    public CheckBox getCheckBox() {
+    protected CheckBox getCheckBox() {
         return checkBox;
     }
 
-    public String getUsernameFieldText() {
+    protected String getUsernameFieldText() {
         return usernameField.getText();
     }
 
-    public String getPasswordFieldText() {
+    protected String getPasswordFieldText() {
         return passwordField.getText();
     }
 }

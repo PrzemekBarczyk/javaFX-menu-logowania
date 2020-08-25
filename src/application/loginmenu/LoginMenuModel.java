@@ -1,3 +1,5 @@
+package application.loginmenu;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -17,11 +19,11 @@ public class LoginMenuModel {
         password = "";
     }
 
-    public void handleCheckBox(boolean isSelected) {
+    protected void handleCheckBox(boolean isSelected) {
         doRememberPassword = isSelected;
     }
 
-    public void handleLoginButton(String username, String password) {
+    protected void handleLoginButton(String username, String password) {
 
         this.username = username;
         this.password = password;
@@ -81,7 +83,7 @@ public class LoginMenuModel {
          }
     }
 
-    public boolean getIsLoginCorrect() {
+    protected boolean getIsLoginCorrect() {
         return isLoginCorrect;
     }
 }

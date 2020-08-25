@@ -1,6 +1,11 @@
+package application.loginmenu;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import application.popoutmenu.PopOutWindowController;
+import application.popoutmenu.PopOutWindowModel;
+import application.popoutmenu.PopOutWindowView;
 
 public class LoginMenuController implements EventHandler<ActionEvent> {
 
