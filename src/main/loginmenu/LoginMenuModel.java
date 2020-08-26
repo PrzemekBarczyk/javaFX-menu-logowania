@@ -1,4 +1,4 @@
-package application.loginmenu;
+package main.loginmenu;
 
 import java.io.File;
 import java.io.FileNotFoundException;

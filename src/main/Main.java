@@ -1,11 +1,11 @@
-package application;
+package main;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import application.loginmenu.LoginMenuController;
-import application.loginmenu.LoginMenuModel;
-import application.loginmenu.LoginMenuView;
+import main.loginmenu.LoginMenuController;
+import main.loginmenu.LoginMenuModel;
+import main.loginmenu.LoginMenuView;
 
 public class Main extends Application {
 

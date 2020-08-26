@@ -1,4 +1,4 @@
-package application.loginmenu;
+package main.loginmenu;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
