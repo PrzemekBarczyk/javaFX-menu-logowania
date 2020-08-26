@@ -3,11 +3,13 @@ package application.loginmenu;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import application.popoutmenu.PopOutWindowController;
-import application.popoutmenu.PopOutWindowModel;
-import application.popoutmenu.PopOutWindowView;
+import application.posloginmenu.PostloginMenuController;
+import application.posloginmenu.PostloginMenuModel;
+import application.posloginmenu.PostloginMenuView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public class LoginMenuController implements EventHandler<ActionEvent> {
+public class LoginMenuController {
 
     private LoginMenuView theView;
     private LoginMenuModel theModel;
@@ -17,26 +19,50 @@ public class LoginMenuController implements EventHandler<ActionEvent> {
         this.theView = theView;
         this.theModel = theModel;
 
-        this.theView.addListeners(this);
+        this.theView.addListeners(this.actionHandler, this.keyHandler);
     }
 
-    @Override
-    public void handle(ActionEvent event) {
 
-        Object evt = event.getSource();
+    EventHandler<ActionEvent> actionHandler = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
 
-        if (evt == theView.getCheckBox()) { // zaznaczono/odznaczono checkBox
-            theModel.handleCheckBox(theView.getCheckBox().isSelected());
+            Object evt = event.getSource();
+
+            if (evt == theView.getCheckBox()) { // zaznaczono/odznaczono checkBox
+                theModel.handleCheckBox(theView.getCheckBox().isSelected());
+            }
+            else { // naciśnięto loginButton
+                theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
+                checkLoginData();
+            }
         }
-        else if (evt == theView.getLoginButton()) { // naciśnięto loginButton
-            theModel.handleLoginButton(theView.getUsernameFieldText(), theView.getPasswordFieldText());
+    };
 
-            if (theModel.getIsLoginCorrect()) { // sprawdza czy dane logowania są poprawne
-                theView.succesLogin();
+    EventHandler<KeyEvent> keyHandler = new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent event) {
+
+            if (event.getCode() == KeyCode.ENTER) { // naciśnięto ENTER w polu loginu lub hasła
+
+                if (event.getSource() == theView.getUsernameField()) { // pole loginu
+                    theView.getPasswordField().requestFocus();
+                }
+                else { // pole hasła
+                    theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
+                    checkLoginData();
+                }
             }
-            else {
-                theView.failLogin();
-            }
+        }
+    };
+
+    private void checkLoginData() {
+
+        if (theModel.getIsLoginCorrect()) { // sprawdza czy dane logowania są poprawne
+            theView.succesLogin();
+        }
+        else {
+            theView.failLogin();
         }
     }
 

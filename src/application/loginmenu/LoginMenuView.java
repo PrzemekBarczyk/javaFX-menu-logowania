@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -89,10 +90,12 @@ public class LoginMenuView {
         System.out.println("Błędny login lub hasło");
     }
 
-    protected void addListeners(EventHandler<ActionEvent> listener) {
+    protected void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
 
-        checkBox.setOnAction(listener);
-        loginButton.setOnAction(listener);
+        checkBox.setOnAction(actionListener);
+        loginButton.setOnAction(actionListener);
+        usernameField.setOnKeyReleased(keyListener);
+        passwordField.setOnKeyReleased(keyListener);
     }
 
     protected Scene getScene() {
@@ -107,11 +110,11 @@ public class LoginMenuView {
         return checkBox;
     }
 
-    protected String getUsernameFieldText() {
-        return usernameField.getText();
+    protected TextField getUsernameField() {
+        return usernameField;
     }
 
-    protected String getPasswordFieldText() {
-        return passwordField.getText();
+    protected TextField getPasswordField() {
+        return passwordField;
     }
 }
