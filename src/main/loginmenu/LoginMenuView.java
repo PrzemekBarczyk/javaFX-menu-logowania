@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class LoginMenuView {
+class LoginMenuView {
 
     private Scene scene;
     private TextField usernameField;
@@ -25,7 +25,7 @@ public class LoginMenuView {
     private CheckBox checkBox;
     private Button loginButton;
 
-    public LoginMenuView() {
+    LoginMenuView() {
 
         // konfiguracja głównego Panelu
         GridPane mainPane = new GridPane();
@@ -82,15 +82,15 @@ public class LoginMenuView {
         }
     }
 
-    protected void succesLogin() {
+    void succesLogin() {
         System.out.println("Zalogowano");
     }
 
-    protected void failLogin() {
+    void failLogin() {
         System.out.println("Błędny login lub hasło");
     }
 
-    protected void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
+    void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
 
         checkBox.setOnAction(actionListener);
         loginButton.setOnAction(actionListener);
@@ -98,23 +98,23 @@ public class LoginMenuView {
         passwordField.setOnKeyReleased(keyListener);
     }
 
-    protected Scene getScene() {
+    Scene getScene() {
         return scene;
     }
 
-    protected Button getLoginButton() {
+    Button getLoginButton() {
         return loginButton;
     }
 
-    protected CheckBox getCheckBox() {
+    CheckBox getCheckBox() {
         return checkBox;
     }
 
-    protected TextField getUsernameField() {
+    TextField getUsernameField() {
         return usernameField;
     }
 
-    protected TextField getPasswordField() {
+    TextField getPasswordField() {
         return passwordField;
     }
 }

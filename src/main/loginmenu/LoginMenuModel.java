@@ -5,25 +5,25 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class LoginMenuModel {
+class LoginMenuModel {
 
     private boolean doRememberPassword; // czy wybrano zapamiętanie danych logowania
     private boolean isLoginCorrect; // czy podano poprawne dane
     private String username;
     private String password;
 
-    public LoginMenuModel() {
+    LoginMenuModel() {
 
         doRememberPassword = false;
         username = "";
         password = "";
     }
 
-    protected void handleCheckBox(boolean isSelected) {
+    void handleCheckBox(boolean isSelected) {
         doRememberPassword = isSelected;
     }
 
-    protected void handleLoginButton(String username, String password) {
+    void handleLoginButton(String username, String password) {
 
         this.username = username;
         this.password = password;
@@ -83,7 +83,7 @@ public class LoginMenuModel {
          }
     }
 
-    protected boolean getIsLoginCorrect() {
+    boolean getIsLoginCorrect() {
         return isLoginCorrect;
     }
 }

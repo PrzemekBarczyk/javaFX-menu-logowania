@@ -4,8 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import main.posloginmenu.PostloginMenuController;
-import main.posloginmenu.PostloginMenuModel;
-import main.posloginmenu.PostloginMenuView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -59,10 +57,10 @@ public class LoginMenuController {
     private void checkLoginData() {
 
         if (theModel.getIsLoginCorrect()) { // sprawdza czy dane logowania są poprawne
-            new PostloginMenuController(new PostloginMenuView("Success Login"), new PostloginMenuModel());
+            new PostloginMenuController("Success Login");
         }
         else {
-            new PostloginMenuController(new PostloginMenuView("Fail Login"), new PostloginMenuModel());
+            new PostloginMenuController("Fail Login");
         }
     }
 
