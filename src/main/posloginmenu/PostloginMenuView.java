@@ -42,7 +42,7 @@ class PostloginMenuView {
         stage.show();
     }
 
-    void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
+    void addEventHandlers(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
 
         closeButton.setOnAction(actionListener);
         closeButton.setOnKeyReleased(keyListener);

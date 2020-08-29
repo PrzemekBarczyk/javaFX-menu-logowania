@@ -12,12 +12,21 @@ public class LoginMenuController {
     private LoginMenuView theView;
     private LoginMenuModel theModel;
 
+    private EventHandler<ActionEvent> actionEventHandler;
+    private EventHandler<KeyEvent> keyEventHandler;
+
     public LoginMenuController() {
 
         this.theView = new LoginMenuView();
         this.theModel = new LoginMenuModel();
 
-        EventHandler<ActionEvent> actionHandler = new EventHandler<ActionEvent>() {
+        this.createEventHandlers();
+        this.theView.addEventHandlers(actionEventHandler, keyEventHandler);
+    }
+
+    private void createEventHandlers() {
+
+        actionEventHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
@@ -33,7 +42,7 @@ public class LoginMenuController {
             }
         };
 
-        EventHandler<KeyEvent> keyHandler = new EventHandler<KeyEvent>() {
+        keyEventHandler = new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
 
@@ -49,8 +58,6 @@ public class LoginMenuController {
                 }
             }
         };
-
-        this.theView.addListeners(actionHandler, keyHandler);
     }
 
     private void checkLoginData() {

@@ -90,7 +90,7 @@ class LoginMenuView {
         System.out.println("Błędny login lub hasło");
     }
 
-    void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
+    void addEventHandlers(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
 
         checkBox.setOnAction(actionListener);
         loginButton.setOnAction(actionListener);
