@@ -4,8 +4,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.loginmenu.LoginMenuController;
-import main.loginmenu.LoginMenuModel;
-import main.loginmenu.LoginMenuView;
 
 public class Main extends Application {
 
@@ -21,7 +19,7 @@ public class Main extends Application {
 
         primaryStage = stage;
         primaryStage.setTitle("Login Menu");
-        primaryStage.setScene(new LoginMenuController(new LoginMenuView(), new LoginMenuModel()).getScene());
+        primaryStage.setScene(new LoginMenuController().getScene());
         primaryStage.show();
     }
 

@@ -45,6 +45,7 @@ class LoginMenuModel {
                     break;
                 }
             }
+            isLoginCorrect = false;
         }
         catch (FileNotFoundException ex) {
             System.out.println("checkIsLoginCorrect(): błąd otwarcia pliku do odczytu");
