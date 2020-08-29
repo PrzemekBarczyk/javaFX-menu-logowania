@@ -2,6 +2,7 @@ package main.posloginmenu;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 
 public class PostloginMenuController {
 
@@ -20,6 +21,13 @@ public class PostloginMenuController {
             }
         };
 
-        theView.addListeners(actionHandler);
+        EventHandler<KeyEvent> keyHandler = new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                theView.closeStage();
+            }
+        };
+
+        theView.addListeners(actionHandler, keyHandler);
     }
 }

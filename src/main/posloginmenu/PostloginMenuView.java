@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -41,8 +42,10 @@ class PostloginMenuView {
         stage.show();
     }
 
-    void addListeners(EventHandler<ActionEvent> listener) {
-        closeButton.setOnAction(listener);
+    void addListeners(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
+
+        closeButton.setOnAction(actionListener);
+        closeButton.setOnKeyReleased(keyListener);
     }
 
     void closeStage() {
