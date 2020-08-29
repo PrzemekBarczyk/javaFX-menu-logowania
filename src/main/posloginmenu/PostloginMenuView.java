@@ -19,9 +19,13 @@ class PostloginMenuView {
     private Button closeButton;
 
     PostloginMenuView(String message) {
+        this.createGUI(message);
+    }
+
+    private void createGUI(String message) {
 
         stage = new Stage();
-        stage.setTitle("Pop Out Menu");
+        stage.setTitle("Poplogin Menu");
 
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);

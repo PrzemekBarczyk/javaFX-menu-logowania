@@ -45,7 +45,7 @@ class LoginMenuModel {
                     return;
                 }
             }
-            isLoginCorrect = false;
+            isLoginCorrect = false; // nie znaleziono podanych danych logowania
         }
         catch (FileNotFoundException ex) {
             System.out.println("checkIsLoginCorrect(): błąd otwarcia pliku do odczytu");

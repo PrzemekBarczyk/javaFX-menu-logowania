@@ -27,6 +27,12 @@ class LoginMenuView {
 
     LoginMenuView() {
 
+        this.createGUI();
+        this.getSavedLoginData(); // pobiera ostatnie dane do logowania jeśli zaznaczono opcję "remember me"
+    }
+
+    private void createGUI() {
+
         // konfiguracja głównego Panelu
         GridPane mainPane = new GridPane();
         mainPane.setAlignment(Pos.CENTER);
@@ -61,12 +67,10 @@ class LoginMenuView {
         loginButton = new Button("Login");
         lowerPane.setRight(loginButton);
 
-        takeSavedLogin(); // pobiera ostatnie dane do logowania jeśli zaznaczono opcję "remember me"
-
         scene = new Scene(mainPane);
     }
 
-    private void takeSavedLogin() {
+    private void getSavedLoginData() {
 
         try {
             Scanner scanner = new Scanner(new FileReader("resources/saved_login.txt"));
@@ -80,14 +84,6 @@ class LoginMenuView {
         catch (FileNotFoundException ex) {
             System.out.println("takeSavedLogin(): błąd przy otwieraniu pliku");
         }
-    }
-
-    void succesLogin() {
-        System.out.println("Zalogowano");
-    }
-
-    void failLogin() {
-        System.out.println("Błędny login lub hasło");
     }
 
     void addEventHandlers(EventHandler<ActionEvent> actionListener, EventHandler<KeyEvent> keyListener) {
