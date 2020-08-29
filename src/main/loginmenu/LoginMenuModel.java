@@ -42,7 +42,7 @@ class LoginMenuModel {
                 usernameAndPassword = scanner.nextLine().split(" ");
                 if (username.equals(usernameAndPassword[0]) && password.equals(usernameAndPassword[1])) {
                     isLoginCorrect = true;
-                    break;
+                    return;
                 }
             }
             isLoginCorrect = false;
