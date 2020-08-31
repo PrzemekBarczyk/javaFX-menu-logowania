@@ -26,35 +26,29 @@ public class LoginMenuController {
 
     private void createEventHandlers() {
 
-        actionEventHandler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        actionEventHandler = event -> {
 
-                Object evt = event.getSource();
+            Object evt = event.getSource();
 
-                if (evt == theView.getCheckBox()) { // zaznaczono/odznaczono checkBox
-                    theModel.handleCheckBox(theView.getCheckBox().isSelected());
-                }
-                else { // naciśnięto loginButton
-                    theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
-                    checkLoginData();
-                }
+            if (evt == theView.getCheckBox()) { // zaznaczono/odznaczono checkBox
+                theModel.handleCheckBox(theView.getCheckBox().isSelected());
+            }
+            else { // naciśnięto loginButton
+                theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
+                checkLoginData();
             }
         };
 
-        keyEventHandler = new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
+        keyEventHandler = event -> {
 
-                if (event.getCode() == KeyCode.ENTER) { // naciśnięto ENTER w polu loginu lub hasła
+            if (event.getCode() == KeyCode.ENTER) { // naciśnięto ENTER w polu loginu lub hasła
 
-                    if (event.getSource() == theView.getUsernameField()) { // pole loginu
-                        theView.getPasswordField().requestFocus();
-                    }
-                    else { // pole hasła
-                        theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
-                        checkLoginData();
-                    }
+                if (event.getSource() == theView.getUsernameField()) { // pole loginu
+                    theView.getPasswordField().requestFocus();
+                }
+                else { // pole hasła
+                    theModel.handleLoginButton(theView.getUsernameField().getText(), theView.getPasswordField().getText());
+                    checkLoginData();
                 }
             }
         };

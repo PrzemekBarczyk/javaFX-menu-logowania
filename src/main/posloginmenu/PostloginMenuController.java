@@ -23,18 +23,7 @@ public class PostloginMenuController {
 
     private void createEventHandlers() {
 
-        actionEventHandler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                theView.closeStage();
-            }
-        };
-
-        keyEventHandler = new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                theView.closeStage();
-            }
-        };
+        actionEventHandler = event -> theView.closeStage();
+        keyEventHandler = event -> theView.closeStage();
     }
 }
