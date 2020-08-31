@@ -59,7 +59,6 @@ class LoginMenuModel {
          if (isLoginCorrect && doRememberPassword) { // podano dobry login i zaznaczono opcję zapamiętania
 
              // zapisz dane w pliku
-             System.out.println("Zapisz login");
              try {
                  PrintWriter write = new PrintWriter("resources/saved_login.txt");
                  write.print(""); // wyczyść poprzednie dane
@@ -73,7 +72,6 @@ class LoginMenuModel {
          else { // podano dobry login i odznaczono opcję zapamiętania lub podano zły login
 
              // usuń zawartość pliku
-             System.out.println("Usuń zapisany login");
              try {
                  PrintWriter write = new PrintWriter("resources/saved_login.txt");
                  write.print(""); // wyczyść wszystkie dane

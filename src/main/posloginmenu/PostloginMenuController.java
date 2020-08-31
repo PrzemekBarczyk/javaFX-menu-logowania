@@ -2,6 +2,7 @@ package main.posloginmenu;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class PostloginMenuController {
@@ -24,6 +25,11 @@ public class PostloginMenuController {
     private void createEventHandlers() {
 
         actionEventHandler = event -> theView.closeStage();
-        keyEventHandler = event -> theView.closeStage();
+        keyEventHandler = event -> {
+
+            if (event.getCode() == KeyCode.ENTER) { // naciśnięto ENTER
+                theView.closeStage();
+            }
+        };
     }
 }

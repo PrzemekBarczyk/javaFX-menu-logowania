@@ -75,7 +75,6 @@ class LoginMenuView {
         try {
             Scanner scanner = new Scanner(new FileReader("resources/saved_login.txt"));
             while (scanner.hasNextLine()) {
-                System.out.println("Pobrano poprzednie dane logowania");
                 String[] usernameAndPassword = scanner.nextLine().split(" ");
                 usernameField.setText(usernameAndPassword[0]);
                 passwordField.setText(usernameAndPassword[1]);
